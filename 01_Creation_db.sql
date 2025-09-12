@@ -1,17 +1,12 @@
 -- Suppression automatique de la BDD pour nouvel utilisateur : 
-DROP DATABASE IF EXISTS smashCenter;
+DROP DATABASE IF EXISTS "smashCenter";
 
 -- Création BDD smashCenter :
-CREATE DATABASE smashCenter;
-
--- Sélection BDD :
-USE smashCenter;
+CREATE DATABASE "smashCenter";
 
 -- Création utilisateur : 
-CREATE USER 'user_tennis'@'localhost' IDENTIFIED BY 'smashCenterDB';
+DROP ROLE IF EXISTS user_tennis;
+CREATE ROLE user_tennis WITH LOGIN PASSWORD 'smashCenterDB';
 
 -- Droit utilisateur : 
-GRANT ALL PRIVILEGES ON smashCenter TO 'user_Tennis'@'localhost' WITH GRANT OPTION;
-
--- Application des changements :
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON DATABASE "smashCenter" TO user_Tennis;
