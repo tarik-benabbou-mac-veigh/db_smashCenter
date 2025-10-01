@@ -30,7 +30,7 @@ CREATE TABLE produit(
 id SERIAL PRIMARY KEY,
 nom VARCHAR(100) NOT NULL,
 type VARCHAR(100) NOT NULL,
-prix DECIMAL(2) NOT NULL,
+prix DECIMAL(5,2) NOT NULL,
 stock INT NOT NULL,
 id_marque INT NOT NULL,
 description VARCHAR(250) NOT NULL,
@@ -46,13 +46,13 @@ etat VARCHAR(100) NOT NULL,
 FOREIGN KEY (id_client) REFERENCES client(id)
 );
 
--- Table lign_commande : 
+-- Table ligne_commande : 
 CREATE TABLE ligne_commande(
 id SERIAL PRIMARY KEY,
 id_commande INT NOT NULL,
 id_produit INT NOT NULL,
 quantite INT NOT NULL,
-prix_unitaire DECIMAL(2) NOT NULL,
+prix_unitaire DECIMAL(5,2) NOT NULL,
 FOREIGN KEY (id_commande) REFERENCES commande(id),
 FOREIGN KEY (id_produit) REFERENCES produit(id)
 );
@@ -66,13 +66,13 @@ notes VARCHAR(250) NOT NULL,
 FOREIGN KEY (id_fournisseur) REFERENCES fournisseur(id)
 );
 
--- Table lign_approvisionnement : 
+-- Table ligne_approvisionnement : 
 CREATE TABLE ligne_approvisionnement(
 id INT PRIMARY KEY,
 id_approvisionnement INT NOT NULL,
 id_produit INT NOT NULL,
 quantite INT NOT NULL,
-prix_achat DECIMAL(2) NOT NULL,
+prix_achat DECIMAL(5,2) NOT NULL,
 FOREIGN KEY (id_approvisionnement) REFERENCES approvisionnement(id),
 FOREIGN KEY (id_produit) REFERENCES produit(id)
 );
