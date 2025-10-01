@@ -9,4 +9,4 @@ DROP ROLE IF EXISTS user_tennis;
 CREATE ROLE user_tennis WITH LOGIN PASSWORD 'smashCenterDB';
 
 -- Droit utilisateur : 
-GRANT ALL PRIVILEGES ON DATABASE "smashCenter" TO user_Tennis;
+GRANT ALL PRIVILEGES ON DATABASE "smashCenter" TO user_tennis;
